@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import Character from './Character';
+import styled from 'styled-components';
+
+const CharactersComp = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
 
 function Characters (props) {
     const { data } = props;
-    const [charData, setCharData] = useState(null);
 
     if(data) {
         return(
-            <div>
+            <CharactersComp>
                 {
                     data.map(char => {
-                        setCharData(char);
-                        return <Character charData={charData}/>
+                        return <Character charData={char}/>
                     })
                 }
-            </div>
+            </CharactersComp>
         )
     } else {
         return <div>LOADING...</div>
