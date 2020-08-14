@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Character from './Character';
+import FavChars from './FavChars';
 import styled from 'styled-components';
 
 const CharactersComp = styled.div`
@@ -17,7 +18,11 @@ function Characters (props) {
             <CharactersComp>
                 {
                     data.map(char => {
-                        return <Character charData={char}/>
+                        if(char.name.includes('Rick') || char.name.includes('Morty')) {
+                            return <FavChars charData={char}/>
+                        } else {
+                            return <Character charData={char}/>
+                        }
                     })
                 }
             </CharactersComp>
