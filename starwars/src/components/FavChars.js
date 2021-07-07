@@ -1,8 +1,7 @@
-// Write your Character component here
 import React from 'react';
 import styled from 'styled-components';
 
-const CharacterComp = styled.div`
+const StyledFavChar = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -11,11 +10,11 @@ const CharacterComp = styled.div`
   margin: 0;
 `;
 
-function Character(props) {
+const FavChars = (props) => {
     const { charData } = props;
-    
     return(
-        <CharacterComp>
+      <StyledFavChar>
+          <h3>Cool Dude!</h3>
             <div className="Char-Img-Section">
               <img src={charData.image} />
             </div>
@@ -25,8 +24,8 @@ function Character(props) {
               <p>Location: {charData.location.name}</p>
               <p>Origin: {charData.origin.name}</p>
             </div>
-        </CharacterComp>
-    )
+      </StyledFavChar>
+  )
 }
 
-export default Character;
+export default FavChars;
